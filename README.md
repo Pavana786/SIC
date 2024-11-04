@@ -1,0 +1,2 @@
+# SIC
+Samsung python internship 
