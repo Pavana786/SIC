@@ -1,0 +1,28 @@
+def can_arrange(n, boys, girls):
+    boys.sort()
+    girls.sort()
+    option1 = [x for pair in zip(boys, girls) for x in pair]
+    option2 = [x for pair in zip(girls, boys) for x in pair]
+    is_non_decreasing = lambda arr: all(arr[i] <= arr[i + 1] for i in range(len(arr) - 1))
+    return "YES" if is_non_decreasing(option1) or is_non_decreasing(option2) else "NO"
+
+# Input and Output
+for _ in range(int(input())):
+    n = int(input())
+    boys = list(map(int, input().split()))
+    girls = list(map(int, input().split()))
+    print(can_arrange(n, boys, girls))
+---------------------------------------------------------------
+output:
+2
+3
+1 3 5
+2 4 6
+YES
+4
+3 8 5 1
+7 6 2 4
+NO
+
+#It checks if the two sorted lists (boys and girls) can be interleaved in either of two ways (option1 or option2) 
+to form a single non-decreasing sequence. It outputs "YES" if possible, otherwise "NO".
