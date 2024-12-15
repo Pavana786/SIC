@@ -1,0 +1,25 @@
+def partition_oranges():
+    # Read the number of oranges
+    n = int(input())
+    # Read the diameters of the oranges
+    oranges = list(map(int, input().split()))
+    
+    # The last orange is the pivot
+    pivot = oranges[-1]
+    left = []  # Holds elements <= pivot
+    right = []  # Holds elements > pivot
+    
+    # Partitioning process
+    for i in range(n - 1):
+        if oranges[i] <= pivot:
+            left.append(oranges[i])
+        else:
+            right.append(oranges[i])
+    
+    # Combine the results
+    result = left + [pivot] + right
+    # Print the resultant array
+    print(" ".join(map(str, result)))
+
+# Call the function
+partition_oranges()
